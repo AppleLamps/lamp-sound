@@ -43,6 +43,8 @@ export default function HomePage() {
       throw new Error(`${res.status} ${text}`);
     }
     return new Uint8Array(await res.arrayBuffer());
+  }
+
   async function onEnhancePrompt() {
     try {
       setEnhanceStatus('Enhancing...');
@@ -62,6 +64,9 @@ export default function HomePage() {
       setEnhanceStatus('Enhanced');
     } catch (e: any) {
       setEnhanceStatus(e?.message || 'Error enhancing prompt');
+    }
+  }
+
   async function onEnhanceTTS() {
     try {
       setTtsEnhanceStatus('Enhancing...');
@@ -96,11 +101,6 @@ export default function HomePage() {
         if (el) el.textContent = 'No duration found in prompt';
       }
     } catch {}
-  }
-
-    }
-  }
-
   }
 
   async function onGenSfx() {
